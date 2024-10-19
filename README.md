@@ -1,3 +1,37 @@
+## Issue reproduction
+
+0. Set up the project
+
+```
+yarn install
+```
+
+1. Start the server
+
+```
+yarn start:dev
+```
+
+2. Go to the playground - http://localhost:3000/graphql
+3. Run the `products` query:
+
+```gql
+query Products {
+  products {
+    id
+    direct
+    resolved
+    combined
+  }
+}
+```
+
+Notes about fields:
+ - `id` and `direct` are passed directly from the REST response, no resolver involved
+ - `resolved` field is being resolved through a resolver, but a very simple one. Just pointing to the REST field (1:1)
+ - `combined` field has a resolver that concatenates two fields (think about it as "full name" that's created from first and last name fields)
+
+
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
 </p>
