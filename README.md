@@ -26,6 +26,8 @@ query Products {
 }
 ```
 
+10 000 products will be returned. You can adjust the number in `src/products/products.mock.ts` file.
+
 Notes about fields:
  - `id` and `direct` are passed directly from the REST response, no resolver involved
  - `resolved` field is being resolved through a resolver, but a very simple one. Just pointing to the REST field (1:1)
