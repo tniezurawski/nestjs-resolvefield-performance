@@ -31,6 +31,7 @@ Notes about fields:
  - `resolved` field is being resolved through a resolver, but a very simple one. Just pointing to the REST field (1:1)
  - `combined` field has a resolver that concatenates two fields (think about it as "full name" that's created from first and last name fields)
 
+----
 
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
