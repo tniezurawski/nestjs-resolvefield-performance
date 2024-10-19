@@ -1,4 +1,4 @@
-import { ResolveField, Resolver } from '@nestjs/graphql';
+import { Parent, ResolveField, Resolver } from '@nestjs/graphql';
 import { Product } from './models/product.model';
 import { ProductRest } from './models/product.rest';
 
@@ -17,5 +17,11 @@ export class ProductsResolver {
     // Slightly more difficult but still, a simple string concatenation.
     // Think about it as `fullName` = `fistName` + `lastName`
     return product.direct + product.resolved;
+  }
+
+  @ResolveField(returns => String)
+  parent(@Parent() product: ProductRest) {
+    // With @Parent() decorator
+    return product.resolved;
   }
 }

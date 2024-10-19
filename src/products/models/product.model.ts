@@ -13,4 +13,7 @@ export class Product {
 
   @Field(type => String)
   combined: string;
+
+  @Field(type => String)
+  parent: string;
 }

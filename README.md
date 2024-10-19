@@ -22,6 +22,7 @@ query Products {
     direct
     resolved
     combined
+    parent
   }
 }
 ```
@@ -32,6 +33,9 @@ Notes about fields:
  - `id` and `direct` are passed directly from the REST response, no resolver involved
  - `resolved` field is being resolved through a resolver, but a very simple one. Just pointing to the REST field (1:1)
  - `combined` field has a resolver that concatenates two fields (think about it as "full name" that's created from first and last name fields)
+ - `parent` same as `resolved` but uses `@Parent()` decorator
+
+4. Run the `products` query with just a single field case to understand its impact
 
 ----
 
