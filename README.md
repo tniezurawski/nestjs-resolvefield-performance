@@ -56,13 +56,13 @@ This is the baseline. 1353 requests in 30s:
 
 ### `resolved`
 
-`resolved` field is a 1:1 map to a field (from another service response or database). 582 requests in 30s. **That's a 57% degradation in performance!**
+`resolved` field is a 1:1 map to a field (from another service response or database). 582 requests in 30s. **That's a 57% degradation in performance!** Or in other words, not using a resolver is 2.3x faster.
 
 ![image](https://github.com/user-attachments/assets/79067fc5-ab3e-41b5-a985-1573066d15a9)
 
 ### `parent`
 
-Same as `resolved` but also uses `@Parent` decorator. 346 requests in 30s. **That's a ~75% drop in performance!**
+Same as `resolved` but also uses `@Parent` decorator. 346 requests in 30s. **That's a ~75% drop in performance!** Or in other words, the base is 3.9x faster than a resolver that happens to use the `@Parent` decorator.
 
 ![image](https://github.com/user-attachments/assets/812234f9-d897-49e0-98c3-83a705a43a4c)
 
