@@ -37,6 +37,35 @@ Notes about fields:
 
 4. Run the `products` query with just a single field case to understand its impact
 
+
+## My findings
+
+### Methodology
+
+In each case, I run a simple query with `id` and "a field". Here's the k6 command I used:
+
+```
+k6 run --vus 1 --duration 30s --http-debug ./performance/--CASE--.js
+```
+
+### `direct`
+
+This is the baseline. 1353 requests in 30s:
+
+![image](https://github.com/user-attachments/assets/bd455a5a-be59-4cf8-9987-76f30660c8da)
+
+### `resolved`
+
+`resolved` field is a 1:1 map to a field (from another service response or database). 582 requests in 30s. **That's a 57% degradation in performance!**
+
+![image](https://github.com/user-attachments/assets/79067fc5-ab3e-41b5-a985-1573066d15a9)
+
+### `parent`
+
+Same as `resolved` but also uses `@Parent` decorator. 346 requests in 30s. **That's a ~75% drop in performance!**
+
+![image](https://github.com/user-attachments/assets/812234f9-d897-49e0-98c3-83a705a43a4c)
+
 ----
 
 <p align="center">
