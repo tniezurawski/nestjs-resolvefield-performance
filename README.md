@@ -70,6 +70,14 @@ Same as `resolved` but also uses `@Parent` decorator. 346 requests in 30s. **Tha
 
 I used two cases here, and this time run as many requests as I could in 10 seconds to see if there were any discrepancies in functions being run.
 
+```
+# First terminal
+clinic flame -- node ./dist/main.js
+
+# Second terminal
+k6 run --vus 1 --duration 10s --http-debug ./performance/direct.js
+```
+
 ### `direct`
 
 The hottest function is `willResolveField` from `@apollo`.
