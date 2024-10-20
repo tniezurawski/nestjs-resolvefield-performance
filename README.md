@@ -66,6 +66,29 @@ Same as `resolved` but also uses `@Parent` decorator. 346 requests in 30s. **Tha
 
 ![image](https://github.com/user-attachments/assets/812234f9-d897-49e0-98c3-83a705a43a4c)
 
+## Clinic
+
+I used two cases here, and this time run as many requests as I could in 10 seconds to see if there were any discrepancies in functions being run.
+
+### `direct`
+
+The hottest function is `willResolveField` from `@apollo`.
+
+![image](https://github.com/user-attachments/assets/9856bbda-cb03-4219-9c6e-f22fbdff861a)
+
+### `resolved`
+
+This time, the hottest function is in NodeJS - `processTicksAndRejections`. That indicates a huge amount of asynchronous operations:
+
+![image](https://github.com/user-attachments/assets/c2ae1bb1-8bf6-473b-8e58-c0f423e1c7b6)
+
+## Working theory
+
+I think that `@ResolveField` is automatically turning functions into async functions even if the developer didn't state that and is making very simple synchronous operations.
+In the experiments here, I took it to extreme and just returned the same field to show the difference but a case for simple synchronous operations has to exist.
+
+Think about `fullName` that concatenates `firstName` and `lastName` or renaming some field or any other way of transforming the data.
+
 ----
 
 <p align="center">
