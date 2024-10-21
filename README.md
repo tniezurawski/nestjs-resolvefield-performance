@@ -90,6 +90,12 @@ This time, the hottest function is in NodeJS - `processTicksAndRejections`. That
 
 ![image](https://github.com/user-attachments/assets/c2ae1bb1-8bf6-473b-8e58-c0f423e1c7b6)
 
+### `parent`
+
+Async queue seems to be even busier when using `@Parent()` decorator:
+
+![image](https://github.com/user-attachments/assets/264325ce-7f4e-4665-8aa9-48b682233b25)
+
 ## Working theory
 
 I think that `@ResolveField` is automatically turning functions into async functions even if the developer didn't state that and is making very simple synchronous operations.
